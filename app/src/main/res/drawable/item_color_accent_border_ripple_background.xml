@@ -2,5 +2,12 @@
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
     android:color="@color/lightGray"
     >
+    <item android:id="@android:id/mask">
+        <shape android:shape="oval">
+            <solid android:color="@color/white"/>
+        </shape>
+    </item>
+
+    <item android:drawable="@drawable/item_circular_color_accent_border"/>
 
 </ripple>
