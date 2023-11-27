@@ -34,6 +34,7 @@ android {
         jvmTarget = "1.8"
     }
 
+    // 변경 후 위에 Sync Now 해줘야 한다!!!
     buildFeatures{
         viewBinding = true
     }

@@ -9,12 +9,6 @@
     >
     <!-- 바인딩은 레이아웃별로 무조건 생셩되니 필요 없으면 ingnore 추가 해라 -->
 
-    <data>
-        <variable
-            name=""
-            type="" />
-    </data>
-
     <ImageView
         android:id="@+id/myImageView"
         app:layout_constraintTop_toTopOf="@id/flStart"
