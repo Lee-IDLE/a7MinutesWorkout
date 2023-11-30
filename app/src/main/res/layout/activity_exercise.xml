@@ -49,6 +49,7 @@
             android:layout_height="100dp"
             style="?android:attr/progressBarStyleHorizontal"
             android:background="@drawable/circular_progress_grey"
+            android:progressDrawable="@drawable/circular_progress_bar"
             android:indeterminate="false"
             android:layout_gravity="center"
             android:max="10"
@@ -57,8 +58,9 @@
             />
 
         <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
             android:background="@drawable/item_circular_color_accent_background"
             android:gravity="center">
 
