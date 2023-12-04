@@ -105,8 +105,8 @@ class ExerciseActivity : AppCompatActivity() {
         exerciseTimer = object : CountDownTimer(30 * 1000, 1000){
             override fun onTick(p0: Long) {
                 exerciseProgress++
-                binding?.ProgressBarExercise?.progress = 10 - exerciseProgress
-                binding?.tvTimerExercise?.text = (10 - exerciseProgress).toString()
+                binding?.ProgressBarExercise?.progress = 30 - exerciseProgress
+                binding?.tvTimerExercise?.text = (30 - exerciseProgress).toString()
             }
 
             override fun onFinish() {
