@@ -1,0 +1,28 @@
+package com.example.a7minutesworkout
+
+import android.text.Layout
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.example.a7minutesworkout.databinding.ItemExerciseStatusBinding
+
+class ExerciseStatusAdapter(val items: ArrayList<ExerciseModel>)
+    : RecyclerView.Adapter<ExerciseStatusAdapter.ViewHolder>(){
+    inner class ViewHolder(binding: ItemExerciseStatusBinding)
+        : RecyclerView.ViewHolder(binding.root){
+        val tvItem = binding.tvItem
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return ViewHolder(ItemExerciseStatusBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+    }
+
+    override fun getItemCount(): Int {
+        return items.size
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val model = items[position]
+        TODO("일단 여기까지 영상은 7분 부터 보면 된다.")
+    }
+}
