@@ -54,7 +54,6 @@ object Constants {
         exerciseList.add(tricepsDipOnChair)
         exerciseList.add(wallSit)
 
-
         return exerciseList
     }
 }

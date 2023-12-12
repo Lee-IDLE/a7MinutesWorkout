@@ -30,7 +30,6 @@ class MainActivity: AppCompatActivity() {
             exitTransition.duration = 700
         }
 
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 

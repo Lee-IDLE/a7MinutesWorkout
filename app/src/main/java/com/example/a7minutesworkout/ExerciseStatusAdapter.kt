@@ -23,6 +23,6 @@ class ExerciseStatusAdapter(val items: ArrayList<ExerciseModel>)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model = items[position]
-        TODO("일단 여기까지 영상은 7분 부터 보면 된다.")
+        holder.tvItem.text = model.getId().toString()
     }
 }
