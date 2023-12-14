@@ -54,7 +54,6 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         binding?.toolbarExerciese?.setNavigationOnClickListener{
             finish()
         }
-        this.onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
         tts = TextToSpeech(this, this)
 
@@ -62,11 +61,6 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         setupExerciseStatusRecyclerView()
     }
 
-    private val onBackPressedCallback = object : OnBackPressedCallback(true){
-        override fun handleOnBackPressed() {
-            finish()
-        }
-    }
 
     private fun setupExerciseStatusRecyclerView(){
         binding.rvExerciseStatus.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
@@ -168,6 +162,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 }else{
                     var intent = Intent(this@ExerciseActivity, FinishActivity::class.java)
                     startActivity(intent)
+                    finish()
                     /*
                     Toast.makeText(
                         this@ExerciseActivity,
