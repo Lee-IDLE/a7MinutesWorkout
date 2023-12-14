@@ -1,5 +1,6 @@
 package com.example.a7minutesworkout
 
+import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +27,9 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private var exerciseList: ArrayList<ExerciseModel>? = null
     private var currentExercisePosition = -1
+
+    private var restTimerDuration: Long = 1
+    private var exerciseTimerDuration: Long = 1
 
     private var tts: TextToSpeech? = null
     private var player: MediaPlayer? = null
@@ -126,11 +130,11 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private fun setRestProgressBar(){
         binding.ProgressBar?.progress = restProgress
 
-        restTimer = object : CountDownTimer(10 * 1000, 1000){
+        restTimer = object : CountDownTimer(restTimerDuration * 1000, 1000){
             override fun onTick(p0: Long) {
                 restProgress++
-                binding.ProgressBar?.progress = 10 - restProgress
-                binding.tvTimer?.text = (10 - restProgress).toString()
+                binding.ProgressBar?.progress = restTimerDuration.toInt() - restProgress
+                binding.tvTimer?.text = (restTimerDuration - restProgress).toString()
             }
 
             override fun onFinish() {
@@ -147,11 +151,11 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private fun setExerciseProgressBar(){
         binding.ProgressBarExercise?.progress = exerciseProgress
 
-        exerciseTimer = object : CountDownTimer(30 * 1000, 1000){
+        exerciseTimer = object : CountDownTimer((exerciseTimerDuration * 1000), 1000){
             override fun onTick(p0: Long) {
                 exerciseProgress++
-                binding.ProgressBarExercise?.progress = 30 - exerciseProgress
-                binding.tvTimerExercise?.text = (30 - exerciseProgress).toString()
+                binding.ProgressBarExercise?.progress = exerciseTimerDuration.toInt() - exerciseProgress
+                binding.tvTimerExercise?.text = (exerciseTimerDuration - exerciseProgress).toString()
             }
 
             override fun onFinish() {
@@ -162,10 +166,14 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 if(currentExercisePosition < exerciseList?.size!! - 1){
                     setupRestView()
                 }else{
+                    var intent = Intent(this@ExerciseActivity, FinishActivity::class.java)
+                    startActivity(intent)
+                    /*
                     Toast.makeText(
                         this@ExerciseActivity,
                         "Congratulations! You have completed the 7 minutes workout.",
                         Toast.LENGTH_LONG).show()
+                     */
                 }
             }
         }.start()

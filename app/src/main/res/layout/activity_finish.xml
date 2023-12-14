@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".FinishActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarFinish"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:theme="@style/ToolbarTheme"
+        android:background="@color/white"
+        app:titleTextColor="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/tvEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="END"
+        android:textSize="30sp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+
+    <FrameLayout
+        android:id="@+id/flDone"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/item_color_accent_border_ripple_background"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center">
+
+        <!-- <ImageView/> -->
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tvCongraturation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Congraturations!"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/tvWorkout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You have done the workout!"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/btnFinish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="FINISH"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+
+
+</LinearLayout>
