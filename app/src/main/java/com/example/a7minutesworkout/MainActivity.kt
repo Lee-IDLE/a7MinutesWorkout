@@ -31,10 +31,16 @@ class MainActivity: AppCompatActivity() {
         }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding?.root)
+        setContentView(binding.root)
 
-        binding?.flStart?.setOnClickListener {
-            var intent = Intent(this@MainActivity, ExerciseActivity::class.java)
+        binding.flStart.setOnClickListener {
+            val intent = Intent(this@MainActivity, ExerciseActivity::class.java)
+            startActivity(intent,
+                ActivityOptions.makeSceneTransitionAnimation(this@MainActivity).toBundle())
+        }
+
+        binding.flBMI.setOnClickListener{
+            val intent = Intent(this@MainActivity, BMIActivity::class.java)
             startActivity(intent,
                 ActivityOptions.makeSceneTransitionAnimation(this@MainActivity).toBundle())
         }

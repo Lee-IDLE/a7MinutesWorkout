@@ -1,5 +1,6 @@
 package com.example.a7minutesworkout
 
+import android.app.Dialog
 import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
@@ -12,8 +13,10 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.OnBackPressedDispatcher
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a7minutesworkout.databinding.ActivityExerciseBinding
+import com.example.a7minutesworkout.databinding.DialogCustomBackConfirmationBinding
 import org.w3c.dom.Text
 import java.util.Locale
 
@@ -52,7 +55,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         exerciseList = Constants.defaultExerciseList()
 
         binding?.toolbarExerciese?.setNavigationOnClickListener{
-            finish()
+            customDialogForBackButton()
+            //finish()
         }
 
         tts = TextToSpeech(this, this)
@@ -61,6 +65,22 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         setupExerciseStatusRecyclerView()
     }
 
+    private fun customDialogForBackButton(){
+        var customDialog = Dialog(this)
+        // 데이터 바인딩
+        val dialogBinding = DialogCustomBackConfirmationBinding.inflate(layoutInflater)
+        customDialog.setContentView(dialogBinding.root)
+        // 대화상자 뜬 상태에서 외부 클릭 방지
+        customDialog.setCanceledOnTouchOutside(false)
+        dialogBinding.btnYes.setOnClickListener{
+            this@ExerciseActivity.finish()
+            customDialog.dismiss()
+        }
+        dialogBinding.btnNo.setOnClickListener{
+            customDialog.dismiss()
+        }
+        customDialog.show()
+    }
 
     private fun setupExerciseStatusRecyclerView(){
         binding.rvExerciseStatus.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
@@ -212,4 +232,5 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private fun speakOut(text: String){
         tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")
     }
+
 }
