@@ -41,8 +41,7 @@ class MainActivity: AppCompatActivity() {
 
         binding.flBMI.setOnClickListener{
             val intent = Intent(this@MainActivity, BMIActivity::class.java)
-            startActivity(intent,
-                ActivityOptions.makeSceneTransitionAnimation(this@MainActivity).toBundle())
+            startActivity(intent)
         }
     }
 
