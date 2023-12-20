@@ -8,21 +8,20 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarBMI"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:theme="@style/ToolbarTheme"
         android:background="@color/white"
         />
 
     <com.google.android.material.textfield.TextInputLayout
+        android:layout_below="@id/toolbarBMI"
         android:id="@+id/tilMetricUnitWeight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         app:boxStrokeColor="@color/colorAccent"
         app:hintTextColor="@color/colorAccent"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        >
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etMetricUnitWeight"
@@ -43,9 +42,8 @@
         android:layout_margin="10dp"
         app:boxStrokeColor="@color/colorAccent"
         app:hintTextColor="@color/colorAccent"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        >
-
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+<!-- style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" -->
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etMetricUnitHeight"
             android:layout_width="match_parent"

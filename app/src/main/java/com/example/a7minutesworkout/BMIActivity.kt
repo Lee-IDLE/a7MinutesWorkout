@@ -2,17 +2,15 @@ package com.example.a7minutesworkout
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import com.example.a7minutesworkout.databinding.ActivityBmiBinding
-import com.example.a7minutesworkout.databinding.ActivityExerciseBinding
-import com.example.a7minutesworkout.databinding.ActivityMainBinding
 import java.math.BigDecimal
 import java.math.RoundingMode
 
 class BMIActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBmiBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBmiBinding.inflate(layoutInflater)
