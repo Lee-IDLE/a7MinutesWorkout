@@ -3,6 +3,7 @@ package com.example.a7minutesworkout
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.RadioGroup
 import android.widget.Toast
 import com.example.a7minutesworkout.databinding.ActivityBmiBinding
 import java.math.BigDecimal
@@ -10,6 +11,12 @@ import java.math.RoundingMode
 
 class BMIActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBmiBinding
+
+    private var currentVisibleView: String = METRIC_UNITS_VIEW
+    companion object{
+        private const val METRIC_UNITS_VIEW = "METRIC_UNIT_VIEW"
+        private const val US_UNITS_VIEW = "US_UNIT_VIEW"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +49,36 @@ class BMIActivity : AppCompatActivity() {
                 Toast.makeText(this@BMIActivity, "Please enter valid values.", Toast.LENGTH_SHORT).show()
             }
         }
+
+        makeVisibleMetricUnitsView()
+        
+        // 여기서 OnClickListener를 사용하면 어느 버튼이 선택됐는지 따로 확인해서
+        // 처리해줘야 하므로 무엇이 선택됐는지 알려주는 setOnCheckedChangeListener가 더 좋다 
+        binding.rgUnits.setOnCheckedChangeListener{ _, checkedId: Int ->
+            if(checkedId == R.id.rbMetricUnits)
+                makeVisibleMetricUnitsView()
+            else
+                makeVisibleUsMetricUnitsView()
+        }
+    }
+
+    private fun makeVisibleMetricUnitsView(){
+        currentVisibleView = METRIC_UNITS_VIEW
+        binding.llMetricArea.visibility = View.VISIBLE
+        binding.flUsUnitArea.visibility = View.GONE
+
+        binding.etMetricUnitWeight.text!!.clear()
+        binding.etUsMetricUnitHeightFeet.text!!.clear()
+        binding.etUsMetricUnitHeightInch.text!!.clear()
+    }
+
+    private fun makeVisibleUsMetricUnitsView(){
+        currentVisibleView = US_UNITS_VIEW
+        binding.llMetricArea.visibility = View.GONE
+        binding.flUsUnitArea.visibility = View.VISIBLE
+
+        binding.etMetricUnitWeight.text!!.clear()
+        binding.etMetricUnitHeight.text!!.clear()
     }
 
     private fun displayBMIResult(bmi: Float){

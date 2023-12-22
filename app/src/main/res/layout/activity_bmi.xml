@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilMetricUnitWeight"
@@ -114,7 +114,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/rgUnits"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilUsUnitWeight"
@@ -129,7 +129,7 @@
                     android:id="@+id/etUsUnitWeight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="WEIGHT (in kg)"
+                    android:hint="WEIGHT (in Pounds)"
                     android:inputType="numberDecimal"
                     android:textSize="16sp"
                     />
@@ -138,19 +138,19 @@
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/etUsMetricUnitHeightFeet"
-                android:layout_below="@id/tilUsUnitWeight"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/tilUsUnitWeight"
                 android:layout_alignParentStart="true"
                 android:layout_margin="10dp"
                 android:hint="Feet"
                 android:inputType="numberDecimal"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/etUsMetricUnitHeightInch"
                 android:layout_below="@id/tilUsUnitWeight"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_margin="10dp"
