@@ -126,7 +126,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/etUsUnitWeight"
+                    android:id="@+id/etUsMetricUnitWeight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="WEIGHT (in Pounds)"
