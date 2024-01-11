@@ -14,10 +14,12 @@ class HistoryAdapter(private val items: ArrayList<String>): RecyclerView.Adapter
         val tvPosition = binding.tvPosition
     }
 
+    // ViewHolder 생성 (ViewHolder는 layout에 있는 값들을 가져오는 거라고 보면 된다)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(ItemHistoryRowBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
+    // List 크기 반환
     override fun getItemCount(): Int {
         return items.size
     }
